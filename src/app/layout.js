@@ -21,9 +21,9 @@ export const metadata = {
     return(
 <html lang="en">
             <body className={inter.className} >
-                <div style={{ display: 'flex', height: '100%' }}>
+                <div style={{ display: 'flex' }}>
                     <Sidenav />
-                    <div style={{ flex: '1', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                         <Navbar />
                         <main style={{ flex: '1', overflowY: 'auto' }}>{children}</main>
                     </div>

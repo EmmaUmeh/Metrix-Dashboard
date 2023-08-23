@@ -3,6 +3,9 @@ import Image from "next/image";
 import { BiChevronDown, BiFolder } from "react-icons/bi";
 
 export default function Home() {
+  const items = [
+    {id: 0, firstimage: "/goldeniphone.svg", firstprice: "IPhone 13", }
+  ]
   return (
     <div className="pl-[20px] pr-[20px]  mt-[20px] sm:ml-[0px] md:ml-[0px] sm:pl-7 md:pl-7">
       
@@ -191,22 +194,25 @@ export default function Home() {
 
           {/* Phone category */}
           <div className="">
-                <div className="flex justify-around align-center flex-col mb-5 bg-[#FFFFFF] rounded-md py-5 pl-[10px] pr-[170px] h-[50vh] sm:w-[100%] md:w-[100%]">
-                <div className="flex justify-between mb-10 px-[15px] py-[15px]">
+                <div className="mb-5 bg-[#FFFFFF] rounded-md py-5 pl-[10px] pr-[10px] h-[50vh] sm:w-[100%] md:w-[100%]">
+                <div className="mb-10 px-[15px] py-[15px]">
                   <div className="px-2">
                   <span className="text-[#000000]">All Products</span>
                   </div>
 
                 </div>
 
+                
                 <div className="">
-                <div className="flex gap-3">
-                  <div><Image src="/goldeniphone.svg" width={50} height={50} alt="graph_image" /></div>  
-                   <div className="flex flex-col">
-                   <div className="flex justify-between">
-                      <span className="text-[#00000]">IPhone 13</span>
-                      <span className="text-[#A6A8B1]">12 Sept 2022</span>
+                  <div className="flex items-center mb-2">
+                    <Image src="/goldeniphone.svg" width={50} height={50} alt="graph_image" />
+                    <div className="flex justify-between">
+                      <span className="text-[#00000]"></span>
+                      <span className="text-[#A6A8B1] flex justify-end">12 Sept 2022</span>
                     </div>
+                  </div>  
+                   <div className="">
+                   
 
                     <div className="flex justify-between">
                   <div>
@@ -224,7 +230,7 @@ export default function Home() {
 
                 </div>
             
-              </div> 
+
 
               </div>
       </div>
