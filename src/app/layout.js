@@ -25,7 +25,7 @@ export const metadata = {
                     <Sidenav />
                     <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                         <Navbar />
-                        <main style={{ flex: '1', overflowY: 'auto' }}>{children}</main>
+                        <main style={{ flex: '1' }}>{children}</main>
                     </div>
                 </div>
             </body>

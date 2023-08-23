@@ -1,14 +1,54 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import DoughnutChart from "@/components/DoughnutChart";
 import Image from "next/image";
 import { BiChevronDown, BiFolder } from "react-icons/bi";
 
 export default function Home() {
-  const items = [
-    {id: 0, firstimage: "/goldeniphone.svg", firstprice: "IPhone 13", }
-  ]
+
+  const [dummydata, setDummyData] = useState([])
+
+
+ function Fetchdata() {
+  let items = [
+    {
+      id: 0,
+      image: "/goldeniphone.svg",
+      phonedetails: "Iphone 13",
+      date: "12 Sept 2022",
+      price: "₦730,000.00 x 1",
+      status: "Pending",
+      numberOfitems: "32",
+    },
+    {
+      id: 1,
+      image: "/blackiphone.svg",
+      phonedetails: "Iphone 13",
+      date: "12 Sept 2022",
+      price: "₦730,000.00 x 1",
+      status: "Completed",
+      numberOfitems: "32",
+    },
+  ];
+
+    let repeatitems = [];
+  for(var i = 0; i < 5; i++){
+    console.log("all items", items)
+    repeatitems = repeatitems.concat(items)
+  }
+
+setDummyData(repeatitems)
+ }
+
+useEffect(() => {
+Fetchdata();
+}, [])
+
+
   return (
     <div className="pl-[20px] pr-[20px]  mt-[20px] sm:ml-[0px] md:ml-[0px] sm:pl-7 md:pl-7">
-      
+
       <div className="grid grid-cols-3 gap-3 sm:grid-cols-1 md:grid-cols-1 items-center">
         <div className="bg-white rounded-md py-5 px-5  sm:w-full md:w-full">
           <div className="flex justify-between mb-10 px-[15px] py-[15px]">
@@ -108,7 +148,7 @@ export default function Home() {
 
       {/* second */}
       <div className="grid grid-cols-3 gap-3 mt-5 mb-5  sm:flex-col md:flex-col sm:flex md:flex">
-      <div className="bg-white rounded-md py-5 px-5 sm:w-[100%] md:w-[100%]">
+      <div className="bg-white rounded-md py-5 h-[70vh] px-5 sm:w-[100%] md:w-[100%]">
           <div className="flex justify-between flex-wrap align-center mb-10 px-[15px] py-[15px]">
             <div className="">
             <span className="text-[#45464E]">Marketing</span>
@@ -194,16 +234,51 @@ export default function Home() {
 
           {/* Phone category */}
           <div className="">
-                <div className="mb-5 bg-[#FFFFFF] rounded-md py-5 pl-[10px] pr-[10px] h-[50vh] sm:w-[100%] md:w-[100%]">
+                <div className="mb-5 bg-[#FFFFFF] rounded-md py-5 pl-[10px] pr-[10px] sm:w-[100%] md:w-[100%]">
                 <div className="mb-10 px-[15px] py-[15px]">
                   <div className="px-2">
-                  <span className="text-[#000000]">All Products</span>
+                  <span className="text-[#000000]">Recents Order</span>
                   </div>
 
                 </div>
 
-                
-                <div className="">
+                <div>
+                <div>
+                {dummydata.length > 0 &&
+                  dummydata.map((item, index) => {
+                    return (
+                      <div key={index} className="flex items-center mb-2">
+                      <Image
+                        src={item.image}
+                        width={50}
+                        height={50}
+                        alt="graph_image"
+                      />
+                      <div className="flex flex-col flex-grow">
+                      <div className="flex flex-grow justify-between">
+                        <span className="text-[#00000]">
+                          {item.phonedetails}
+                        </span>
+                        <span className="text-[#A6A8B1]">
+                          {item.date}
+                        </span>
+                      </div>
+                      <div className="flex flex-grow justify-between">
+                        <span className="text-[#00000]">
+                          {item.price}
+                        </span>
+                        <span className="text-[#A6A8B1] rounded-[8px]">
+                          {item.status}
+                        </span>
+                      </div>
+                      </div>
+                    </div>
+                    
+                    );
+                  })}
+              </div>
+                </div>
+                {/* <div className="">
                   <div className="flex items-center mb-2">
                     <Image src="/goldeniphone.svg" width={50} height={50} alt="graph_image" />
                     <div className="flex justify-between">
@@ -224,7 +299,7 @@ export default function Home() {
                   </div>
                 </div>
                    </div>
-                </div>
+                </div> */}
 
 
 
