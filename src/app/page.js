@@ -11,7 +11,7 @@ export default function Home() {
 
 
  function Fetchdata() {
-  let items = [
+  var items = [
     {
       id: 0,
       image: "/goldeniphone.svg",
@@ -30,8 +30,11 @@ export default function Home() {
       status: "Completed",
       numberOfitems: "32",
     },
+    
   ];
 
+
+  
     let repeatitems = [];
   for(var i = 0; i < 5; i++){
     console.log("all items", items)
@@ -254,20 +257,20 @@ Fetchdata();
                         height={50}
                         alt="graph_image"
                       />
-                      <div className="flex flex-col flex-grow">
-                      <div className="flex flex-grow justify-between">
-                        <span className="text-[#00000]">
+                      <div className="flex flex-col flex-grow pl-2 pr-2 mb-3">
+                      <div className="flex flex-grow justify-between pb-3 mt-5">
+                        <span className="text-[#00000] text-sm">
                           {item.phonedetails}
                         </span>
-                        <span className="text-[#A6A8B1]">
+                        <span className="text-[#A6A8B1] text-sm">
                           {item.date}
                         </span>
                       </div>
                       <div className="flex flex-grow justify-between">
-                        <span className="text-[#00000]">
+                        <span className="text-[#00000] text-sm">
                           {item.price}
                         </span>
-                        <span className="text-[#A6A8B1] rounded-[8px]">
+                        <span className={`text-[#A6A8B1] text-sm rounded-[8px] py-2 px-2  ${item.status === 'Pending' ? 'bg-[#F57E771F] text-[#CC5F5F]' : 'bg-[#32936F1F] text-[#519C66]'}`}>
                           {item.status}
                         </span>
                       </div>
