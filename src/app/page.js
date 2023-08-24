@@ -270,7 +270,7 @@ Fetchdata();
                         <span className="text-[#00000] text-sm">
                           {item.price}
                         </span>
-                        <span className={`text-[#A6A8B1] text-sm rounded-[8px] py-2 px-2  ${item.status === 'Pending' ? 'bg-[#F57E771F] text-[#CC5F5F]' : 'bg-[#32936F1F] text-[#519C66]'}`}>
+                        <span className={`text-[#A6A8B1] text-sm rounded-[8px] py-2 px-2  ${item.status === 'Pending' ? 'bg-[#F57E771F] text-[#CC5F5F] font-[400]' : 'bg-[#32936F1F] text-[#519C66] font-[400]'}`}>
                           {item.status}
                         </span>
                       </div>
