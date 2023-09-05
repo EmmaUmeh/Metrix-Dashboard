@@ -7,7 +7,8 @@ import { BiChevronDown, BiFolder } from "react-icons/bi";
 
 export default function Home() {
 
-  const [dummydata, setDummyData] = useState([])
+  const [dummydata, setDummyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
 
  function Fetchdata() {
@@ -41,7 +42,9 @@ export default function Home() {
     repeatitems = repeatitems.concat(items)
   }
 
-setDummyData(repeatitems)
+
+setDummyData(repeatitems);
+setLoading(false);
  }
 
 useEffect(() => {
@@ -246,65 +249,44 @@ Fetchdata();
                 </div>
 
                 <div>
+                  
                 <div>
-                {dummydata.length > 0 &&
-                  dummydata.map((item, index) => {
-                    return (
-                      <div key={index} className="flex items-center mb-2">
-                      <Image
-                        src={item.image}
-                        width={50}
-                        height={50}
-                        alt="graph_image"
-                      />
-                      <div className="flex flex-col flex-grow pl-2 pr-2 mb-3">
-                      <div className="flex flex-grow justify-between pb-3 mt-5">
-                        <span className="text-[#00000] text-sm">
-                          {item.phonedetails}
-                        </span>
-                        <span className="text-[#A6A8B1] text-sm">
-                          {item.date}
-                        </span>
-                      </div>
-                      <div className="flex flex-grow justify-between">
-                        <span className="text-[#00000] text-sm">
-                          {item.price}
-                        </span>
-                        <span className={`text-[#A6A8B1] text-sm rounded-[8px] py-2 px-2  ${item.status === 'Pending' ? 'bg-[#F57E771F] text-[#CC5F5F] font-[400]' : 'bg-[#32936F1F] text-[#519C66] font-[400]'}`}>
-                          {item.status}
-                        </span>
-                      </div>
-                      </div>
-                    </div>
-                    
-                    );
-                  })}
-              </div>
+  {dummydata.length > 0 ? (
+    dummydata.map((item, index) => (
+      <div key={index} className="flex items-center mb-2">
+        <Image
+          src={item.image}
+          width={50}
+          height={50}
+          alt="graph_image"
+        />
+        <div className="flex flex-col flex-grow pl-2 pr-2 mb-3">
+          <div className="flex flex-grow justify-between pb-3 mt-5">
+            <span className="text-[#00000] text-sm">
+              {item.phonedetails}
+            </span>
+            <span className="text-[#A6A8B1] text-sm">
+              {item.date}
+            </span>
+          </div>
+          <div className="flex flex-grow justify-between">
+            <span className="text-[#00000] text-sm">
+              {item.price}
+            </span>
+            <span className={`text-[#A6A8B1] text-sm rounded-[8px] py-2 px-2  ${item.status === 'Pending' ? 'bg-[#F57E771F] text-[#CC5F5F] font-[400]' : 'bg-[#32936F1F] text-[#519C66] font-[400]'}`}>
+              {item.status}
+            </span>
+          </div>
+        </div>
+      </div>
+    ))
+  ) : (
+    loading ? 'Loading...' : null
+  )}
+</div>
+
+
                 </div>
-                {/* <div className="">
-                  <div className="flex items-center mb-2">
-                    <Image src="/goldeniphone.svg" width={50} height={50} alt="graph_image" />
-                    <div className="flex justify-between">
-                      <span className="text-[#00000]"></span>
-                      <span className="text-[#A6A8B1] flex justify-end">12 Sept 2022</span>
-                    </div>
-                  </div>  
-                   <div className="">
-                   
-
-                    <div className="flex justify-between">
-                  <div>
-                  <span className="text-[#00000]">₦730,000.00 x 1</span>
-                  </div>
-
-                  <div>
-                    <span className="text-[#00000]">32</span>
-                  </div>
-                </div>
-                   </div>
-                </div> */}
-
-
 
                 </div>
             
